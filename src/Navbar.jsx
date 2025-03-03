@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
+import Logo from "./components/Logo";
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/about">About</Link></li> 
-        <li><Link to="/product-list">Product List</Link></li>
-        <li><Link to="/cart">Shopping Cart</Link></li> 
-        <li><Link to="/order-confirmation">Order Confirmation</Link></li>
+    <nav className="navbar">
+      <Logo />
+      <ul className="nav-links">
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/product-list">Product</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
+        <li>
+          <Link to="/order-confirmation">Order</Link>
+        </li>
       </ul>
     </nav>
   );

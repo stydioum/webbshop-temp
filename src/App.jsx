@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";  
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 import Navbar from "./Navbar";
 import About from "./components/About";
 import ProductList from "./components/ProductList";
@@ -9,26 +10,19 @@ import OrderConfirmation from "./components/OrderConfirmation";
 import "./styles.css";
 
 const App = () => {
-  const [cart, setCart] = useState([]);  
-
-  const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
-  };
-
   return (
-    <div className="container">
-      <Navbar />
-      <Routes>
-      <Route path="/about" element={<About />} /> 
-        <Route
-          path="/product-list"
-          element={<ProductList addToCart={addToCart} />}
-        />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<ShoppingCart cart={cart} />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
-      </Routes>
-    </div>
+    <CartProvider>
+      <div className="container">
+        <Navbar />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/product-list" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<ShoppingCart />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        </Routes>
+      </div>
+    </CartProvider>
   );
 };
 
