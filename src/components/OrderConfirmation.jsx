@@ -20,7 +20,7 @@ const OrderConfirmation = () => {
       <h1>Order</h1>
       {orderPlaced ? (
         <p>
-          Thank you for your purchase! Your order has been placed successfully.
+          Thank you for your purchase! Your order has been placed successfully!
         </p>
       ) : (
         <>
